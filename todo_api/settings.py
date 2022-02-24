@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-# custom imports
 import os
 from corsheaders.defaults import default_methods
 from corsheaders.defaults import default_headers
@@ -41,28 +40,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # my app & 3rd party apps
     'api',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-    # my app & 3rd party apps
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # cors middleware
     'corsheaders.middleware.CorsMiddleware',
-    # cors middleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # whitenoise middleware
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    # whitenoise middleware
 ]
 
 ROOT_URLCONF = 'todo_api.urls'

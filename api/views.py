@@ -55,7 +55,7 @@ def generate_token(request):
 
     token = Token.objects.create(user=user)
 
-    return Response({'Token': token.key}, status=status.HTTP_200_OK)
+    return Response({'token': token.key}, status=status.HTTP_200_OK)
 
 @csrf_exempt
 @api_view(['GET', 'POST'])
