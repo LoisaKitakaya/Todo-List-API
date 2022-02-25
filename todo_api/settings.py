@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*6&=ymmb23me^o&m&^!)$deg^!)9s*bngjgmlq-3$qb5yn%zim'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'todo_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ded0hdauro7p8n',
-        'USER': 'cshepvfpipikqx',
-        'PASSWORD': '86afff9032a39960c9da2465d70af65e15d6bba2864a356f01aa7b88afd445c7',
-        'HOST': 'ec2-35-153-35-94.compute-1.amazonaws.com',
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': os.environ.get('HOST'),
         'PORT': '5432'
     }
 }
@@ -151,11 +151,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://github.com/adamchainz/django-cors-headers
 
 CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:5500',
+    os.environ.get('ALLOWED_SITE_ONE'),
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://127.0.0.1:5500',
+    os.environ.get('ALLOWED_SITE_ONE'),
 ]
 
 CORS_ALLOW_METHODS = list(default_methods)
